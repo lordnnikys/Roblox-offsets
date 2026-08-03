@@ -163,3 +163,9 @@ lua_pushcclosure
 
 
 lua_pushcfunction
+
+ScriptContextResume
+
+NewInstance
+
+Impersonator
