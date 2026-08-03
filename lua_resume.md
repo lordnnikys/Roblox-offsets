@@ -15,3 +15,5 @@ That function is lua_resume (thats just check that this is the correct function,
 ```c
 __int64 __fastcall sub_4B68510(__int64 a1, __int64 a2)
 ```
+
+So the offset is sub_4B68510 (0x4B68510)
