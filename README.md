@@ -75,3 +75,15 @@ lua_resume
 lua_pushnumber
 
 lua_pushinteger
+
+lua_gettop
+
+lua_settop
+
+luaL_errorL
+
+luaA_toobject
+
+lua_encodepointer
+
+luaL_tostring
