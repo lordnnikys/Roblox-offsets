@@ -161,7 +161,6 @@ FireClient
 
 lua_pushcclosure
 
-
 lua_pushcfunction
 
 ScriptContextResume
@@ -169,3 +168,5 @@ ScriptContextResume
 NewInstance
 
 Impersonator
+
+GetCapabilities
