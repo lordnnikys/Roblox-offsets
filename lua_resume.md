@@ -17,3 +17,8 @@ __int64 __fastcall sub_4B68510(__int64 a1, __int64 a2)
 ```
 
 So the offset is sub_4B68510 (0x4B68510)
+
+Example of use: 
+```c++
+int result = ((int(*)(lua_State*, lua_State*))REBASE(0x4B68510))(L, coroutine);
+```
