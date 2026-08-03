@@ -144,3 +144,19 @@ luaB_tonumber
 luaB_tostring
 
 lua_pcall
+
+coroutine.create
+
+coroutine.resume
+
+coroutine.yield
+
+coroutine.wrap
+
+coroutine.close
+
+coroutine.isyieldable
+
+coroutine.running
+
+coroutine.status
