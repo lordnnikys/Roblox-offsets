@@ -7,7 +7,7 @@ In previous guide i said that `luaG_readonlyerror` is useless. But from it we ca
 To dump it go to Lus_SandBoxThread which you already know how to dump from my guides:
 
 
-```
+```c
 __int64 __fastcall sub_1DA9D90(__int64 a1)
 {
   sub_4B61D80(a1, a2: 0, a3: 0);
@@ -23,7 +23,7 @@ __int64 __fastcall sub_1DA9D90(__int64 a1)
  double click **sub_4B64920** 
 
 And find this block: 
-```
+```c
     if ( *(_BYTE *)(*(_QWORD *)v4 + 4LL) != 0 )
       sub_4B6B440(a1);
     *(_QWORD *)(*(_QWORD *)v4 + 16LL) = v5;
@@ -32,7 +32,7 @@ And find this block:
   
   that is **luaG_readonlyerror**, then, double click **sub_4B6B440**: 
 
-```
+```c
 void __fastcall __noreturn sub_4B6B440(__int64 a1)
 {
   sub_4B6B470(a1, a2: "attempt to modify a readonly table");
