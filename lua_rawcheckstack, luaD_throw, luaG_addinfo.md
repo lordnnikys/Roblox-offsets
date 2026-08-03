@@ -18,7 +18,8 @@ __int64 __fastcall sub_1DA9D90(__int64 a1)
   sub_4B63740(a1, a2: 4294957294LL);
   sub_4B64B40(a1, a2: 4294967293LL);
   return sub_4B64920(a1, a2: 4294967294LL);
-}```
+}
+```
 
 double click **sub_4B64920**
 
