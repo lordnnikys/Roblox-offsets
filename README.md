@@ -87,3 +87,9 @@ luaA_toobject
 lua_encodepointer
 
 luaL_tostring
+
+luaL_checklstring
+
+lua_gc
+
+luaC_step
