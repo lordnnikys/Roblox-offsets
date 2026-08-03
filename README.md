@@ -154,3 +154,7 @@ coroutine.running
 coroutine.status
 
 lua_setfield (C API)
+
+FireServer
+
+FireClient
