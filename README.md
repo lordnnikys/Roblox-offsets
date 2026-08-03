@@ -69,3 +69,9 @@ luaC_step
 luaC_barrierback
 
 luaS_newlstr
+
+lua_resume
+
+lua_pushnumber
+
+lua_pushinteger
