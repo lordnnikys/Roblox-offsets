@@ -3,7 +3,7 @@
 Resumes a suspended coroutine. Needed to actually run code in threads you create with lua_newthread.
 
 Search string (shift+f12) **"cannot resume non-suspended coroutine"** — go to its **second** xref decompile:
-```
+```c
    v2 = *(a1 + 3);
    if (v2 != 1 && v2 != 6 && (v2 != 0 || *(a1 + 72) != *(a1 + 96)))
    {
