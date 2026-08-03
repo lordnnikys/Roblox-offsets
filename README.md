@@ -15,7 +15,7 @@ lua_createtable
 
 lua_setmetatable
 
-lua_pushstring
+lua_pushstring (2 guides on it here)
 
 lua_pushvalue
 
@@ -53,25 +53,19 @@ TaskDefer
 
 GetIdentityStruct
 
-luaS_newlstr
+luaS_newlstr (2 guides in here)
 
 luau_load
 
-luaC_step
+luaC_step (~4 guides on it here)
 
 lua_loadsafe
 
 luaD_rawrunprotected
 
-lua_pushstringL
-
 luaM_free_
 
-luaC_step
-
 luaC_barrierback
-
-luaS_newlstr
 
 lua_resume
 
@@ -94,8 +88,6 @@ luaL_tostring
 luaL_checklstring
 
 lua_gc
-
-luaC_step
 
 lua_tonumber
 
