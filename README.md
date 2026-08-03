@@ -158,3 +158,8 @@ lua_setfield (C API)
 FireServer
 
 FireClient
+
+lua_pushcclosure
+
+
+lua_pushcfunction
