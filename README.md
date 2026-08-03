@@ -1,6 +1,8 @@
 # Roblox-offsets
 This is guide on how to get multiple roblox offsets through ida
 
+**SOME OFFSETS CAN BE PRESENT MULTIPLE TIMES, BECAUSE I'M INATTENTIVE AND I DONT KEEP TRACK OF WHAT I ALREADY DID!!!!**
+
 List of current offsets:
 Lua_NewThread
 
