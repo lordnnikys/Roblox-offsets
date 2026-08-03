@@ -60,7 +60,7 @@ lua_loadsafe
 
 luaD_rawrunprotected
 
-lua_pushstring
+lua_pushstringL
 
 luaM_free_
 
