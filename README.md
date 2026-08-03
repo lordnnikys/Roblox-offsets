@@ -142,3 +142,5 @@ luaB_setmetatable
 luaB_tonumber
 
 luaB_tostring
+
+lua_pcall
