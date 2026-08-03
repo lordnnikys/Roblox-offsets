@@ -152,3 +152,5 @@ coroutine.isyieldable
 coroutine.running
 
 coroutine.status
+
+lua_setfield (C API)
