@@ -93,3 +93,15 @@ luaL_checklstring
 lua_gc
 
 luaC_step
+
+lua_tonumber
+
+lua_getmetatable
+
+lua_type
+
+lua_setfield
+
+luaL_register
+
+lua_getfield
