@@ -169,7 +169,7 @@ lua_objlen
 
 lua_pcall: 48 89 74 24 ? 57 48 83 EC 20 0F B6 41 ? 48 8B F9
 
-lua_pushboolean: 
+lua_pushboolean: 48 89 5C 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 8B FA 48 8B D9 74
 
 lua_pushcclosure
 
