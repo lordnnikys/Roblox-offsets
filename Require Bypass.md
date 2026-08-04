@@ -12,7 +12,8 @@ To dump require bypass you find string (shift f12 in ida, "s" in ghidra) "Cannot
       sub_5154200(a1: "Cannot require a non-RobloxScript module from a RobloxScript");
     if ( (unsigned __int8)sub_4C2D610(a1: v92, a2: 8) == 0 && (unsigned __int8)sub_1DEA640(a1: v70) != 0 )
       sub_5154200(a1: "Cannot require a RobloxScript module from a non RobloxScript context");
-  }```
+  }
+```
 Double click **sub_1D55ED0** (or whatever value will be here on your Roblox version) and you will be put here:
 
 ```c
@@ -21,7 +22,8 @@ __int64 __fastcall sub_1D55ED0(__int64 a1)
   if ( *(int *)(a1 + 4792) >= 3 )
     sub_513AB80(a1: 0, a2: "Invalid Facet Access");
   return sub_1DABCC0(a1: a1 + 2048);
-}```
+}
+```
 There you double click **sub_1DABCC0** (or once again whatever value will be here) and there will be:
 ```c
   return *(unsigned __int8 *)(a1 + 464);
