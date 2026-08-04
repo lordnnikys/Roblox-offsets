@@ -222,3 +222,5 @@ TaskCancel
 TaskDefer
 
 TouchInterest
+
+luaF_newLclosure
