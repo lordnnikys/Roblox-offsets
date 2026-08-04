@@ -216,3 +216,5 @@ lua_concat
 lua_equal
 
 lua_pushboolean
+
+InvokeServer
