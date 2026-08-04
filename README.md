@@ -226,3 +226,5 @@ TouchInterest
 luaF_newLclosure
 
 luaF_newCclosure
+
+luaM_newgco
