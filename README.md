@@ -1,6 +1,8 @@
 # Roblox-offsets
 This is guide on how to get multiple roblox offsets through ida
 
+Made with EVIL
+
 Time spent: 20 hours
 
 1280 lines
