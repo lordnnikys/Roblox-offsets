@@ -23,3 +23,4 @@ LABEL_10:
 ```
 
 To get an actual offset click on 40 once and press h, ida will change it to 0x28, that is your offset
+Read VMVal.md to see how different vmvalues are decrypted
