@@ -226,3 +226,5 @@ luah_dummynode
 lua_tothread
 
 lua_newuserdata
+
+luaL_checkinteger
