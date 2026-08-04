@@ -139,7 +139,7 @@ lua_bit32
 
 lua_concat
 
-lua_createtable
+lua_createtable: 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 4C 8B 49 ? 41 8B F0
 
 lua_encodepointer
 
@@ -153,7 +153,7 @@ lua_gcinfo
 
 lua_getfenv
 
-lua_getfield
+lua_getfield: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 ? ? ? 49 8B F0 48 63 FA
 
 lua_getmetatable
 
@@ -163,7 +163,7 @@ lua_loadsafe
 
 lua_newuserdata
 
-lua_next
+lua_next: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA 74 ? 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 85 FF 7E ? 48 8B 43 ? 48 8B CF 48 8B 53
 
 lua_objlen
 
@@ -171,7 +171,7 @@ lua_pcall: 48 89 74 24 ? 57 48 83 EC 20 0F B6 41 ? 48 8B F9
 
 lua_pushboolean: 48 89 5C 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 8B FA 48 8B D9 74
 
-lua_pushcclosure
+lua_pushcclosure: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 4C 8B 49 ? 41 8B F8
 
 lua_pushcfunction: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 4C 8B 49 ? 41 8B F8
 
@@ -185,15 +185,15 @@ lua_pushvalue
 
 lua_rawcheckstack
 
-lua_rawget
+lua_rawget: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA 74 ? 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 85 FF 7E ? 48 8B 43 ? 48 8B CF 48 8B 53
 
-lua_rawset
+lua_rawset: 48 89 74 24 ? 57 48 83 EC 20 48 8B F1 85 D2
 
-lua_replace
+lua_replace: 40 53 48 83 EC 20 48 8B D9 85 D2 7E ? 4C 8B 41
 
 lua_resume: 40 53 48 83 EC 20 0F B6 41 ? 48 8B D9 3C 01
 
-lua_setfield
+lua_setfield: 48 89 5C 24 ? 57 48 83 EC 20 4D 8B D0 48 8B F9
 
 lua_setmetatable
 
