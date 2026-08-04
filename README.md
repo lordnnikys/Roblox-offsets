@@ -222,3 +222,5 @@ InvokeServer
 luah_new
 
 luah_dummynode
+
+lua_tothread
