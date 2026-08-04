@@ -194,3 +194,17 @@ lua_bit32
 lua_rawget
 
 lua_next
+
+lua_error
+
+lua_gcinfo
+
+lua_pushvalue
+
+luaL_callmeta
+
+lua_pushcfunction
+
+lua_createtable
+
+luaL_tolstring
