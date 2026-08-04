@@ -184,3 +184,9 @@ TaskCancel
 SetFFlag
 
 InvokeServer
+
+luau_execute
+
+luaopen_*
+
+lua_bit32
