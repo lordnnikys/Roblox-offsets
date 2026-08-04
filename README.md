@@ -97,11 +97,11 @@ luaC_step
 
 luaD_rawrunprotected
 
-luaD_throw
+luaD_throw: 48 83 EC 58 44 8B C2 // MIGHT BE BAD
 
 luaG_addinfo
 
-luaG_runerror
+luaG_runerror: 48 8B C4 48 89 50 ? 4C 89 40 ? 4C 89 48 ? 53 48 81 EC 20 02 00 00
 
 luaL_argerrorL
 
@@ -145,7 +145,7 @@ lua_encodepointer
 
 lua_equal
 
-lua_error
+lua_error: 
 
 lua_gc
 
