@@ -185,7 +185,7 @@ InvokeServer
 
 luau_execute
 
-luaopen_*
+luaopen_base
 
 lua_bit32
 
