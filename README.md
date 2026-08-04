@@ -224,3 +224,5 @@ luah_new
 luah_dummynode
 
 lua_tothread
+
+lua_newuserdata
