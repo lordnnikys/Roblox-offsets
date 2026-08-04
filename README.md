@@ -47,7 +47,7 @@ Impersonator
 
 InvokeServer
 
-Lua_NewThread
+Lua_NewThread: 48 8B F8 ? ? ? C7 41
 
 Lua_pseudoaddr
 
