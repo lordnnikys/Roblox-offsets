@@ -41,7 +41,7 @@ GetCapabilities
 
 GetIdentityStruct
 
-GetLuaStateForInstance
+GetLuaStateForInstance: 7D ? 48 81 C1 38 01 00 00 E8
 
 Impersonator
 
