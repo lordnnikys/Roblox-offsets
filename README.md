@@ -228,3 +228,5 @@ luaF_newLclosure
 luaF_newCclosure
 
 luaM_newgco
+
+lua_state encryption
