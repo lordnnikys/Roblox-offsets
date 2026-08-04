@@ -191,7 +191,7 @@ lua_rawset
 
 lua_replace
 
-lua_resume
+lua_resume: 76 ? 41 84 50
 
 lua_setfield
 
