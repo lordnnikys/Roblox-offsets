@@ -1,6 +1,6 @@
 # luaF_newLclosure
 
-To dump luaF_newLclosure search string" go to its xref decompile and find (near end):
+To dump luaF_newLclosure search string "%s: bytecode corrupted" go to its xref decompile and find (near end):
 ```c
   while ( v228 < 0 );
   if ( (*(_BYTE *)v3 & 4) != 0 )
