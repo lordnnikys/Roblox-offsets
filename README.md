@@ -220,3 +220,5 @@ lua_pushboolean
 InvokeServer
 
 luah_new
+
+luah_dummynode
