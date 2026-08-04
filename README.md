@@ -190,3 +190,7 @@ luau_execute
 luaopen_*
 
 lua_bit32
+
+lua_rawget
+
+lua_next
