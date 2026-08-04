@@ -157,7 +157,7 @@ lua_getfield
 
 lua_getmetatable
 
-lua_gettop
+lua_gettop: E8 ? ? ? ? 2B 43 ? 48 98
 
 lua_loadsafe
 
@@ -167,7 +167,7 @@ lua_next
 
 lua_objlen
 
-lua_pcall
+lua_pcall: 49 63 F0 3C 01
 
 lua_pushboolean
 
@@ -199,7 +199,7 @@ lua_setmetatable
 
 lua_settable
 
-lua_settop
+lua_settop: 48 89 5C 24 ? 57 48 83 EC 20 48 63 FA 48 8B D9 85 D2 0F 88
 
 lua_tonumber
 
