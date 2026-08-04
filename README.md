@@ -213,7 +213,7 @@ pushinstance
 
 Require Bypass
 
-ScriptContextResume
+ScriptContextResume: 4C 8B DC 49 89 5B ? 49 89 73 ? 57 41 54 41 55 41 56 41 57 48 81 EC F0 00 00 00
 
 SetFFlag
 
