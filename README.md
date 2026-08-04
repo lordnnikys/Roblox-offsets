@@ -219,7 +219,7 @@ SetFFlag
 
 TaskCancel
 
-TaskDefer
+TaskDefer: 4C 8B F0 80 B8
 
 TouchInterest
 
