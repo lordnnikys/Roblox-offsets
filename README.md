@@ -1,6 +1,8 @@
 # Roblox-offsets
 This is guide on how to get multiple roblox offsets through ida
 
+**THIS IS FREE TO USE, IF YOU BUILD DUMPER WITH IT - OKAY, CREDIT ME IF YOU WANT, I DON'T EXPECT ANYTHING IN RETURN.**
+
 Made with EVIL
 
 Time spent: 20 hours
