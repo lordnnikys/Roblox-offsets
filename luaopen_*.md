@@ -10,4 +10,4 @@ Or decompile:
 __int64 __fastcall sub_4B7E520(_QWORD *a1)
 ```
 
-So the offset is 0x4B7E520
+So the offset is 0x4B7E520 (this is luaopen_base)
