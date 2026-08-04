@@ -224,3 +224,5 @@ TaskDefer
 TouchInterest
 
 luaF_newLclosure
+
+luaF_newCclosure
