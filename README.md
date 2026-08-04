@@ -51,7 +51,7 @@ Lua_NewThread
 
 Lua_pseudoaddr
 
-Lua_SandBoxThread
+Lua_SandBoxThread: 33 D2 48 8B D9 E8 ? ? ? ? 45 33 C0
 
 luaA_toobject
 
@@ -131,7 +131,7 @@ luah_new
 
 luau_execute
 
-luau_load
+luau_load: E8 ? ? ? ? 40 84 F6 48 8B 74 24
 
 luaopen_base
 
