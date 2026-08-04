@@ -41,17 +41,17 @@ GetCapabilities
 
 GetIdentityStruct
 
-GetLuaStateForInstance: 7D ? 48 81 C1 38 01 00 00 E8
+GetLuaStateForInstance: 48 83 EC 38 8B 81 ? ? ? ? 90 83 F8 03 7D ? 48 81 C1 38 01 00 00
 
-Impersonator
+Impersonator: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 60 ? ? ? 48 8B F1 ? ? ? 49 8B D9
 
 InvokeServer
 
-Lua_NewThread: 48 8B F8 ? ? ? C7 41
+Lua_NewThread: 40 53 48 83 EC 20 48 8B 51 ? 48 8B D9 ? ? ? 48 39 42
 
 Lua_pseudoaddr
 
-Lua_SandBoxThread: 33 D2 48 8B D9 E8 ? ? ? ? 45 33 C0
+Lua_SandBoxThread: 40 53 48 83 EC 20 45 33 C0 33 D2 48 8B D9 E8 ? ? ? ? 45 33 C0
 
 luaA_toobject
 
@@ -131,7 +131,7 @@ luah_new
 
 luau_execute
 
-luau_load: E8 ? ? ? ? 40 84 F6 48 8B 74 24
+luau_load: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 81 EC 80 00 00 00 49 8B E9 4D 8B F0
 
 luaopen_base
 
@@ -167,7 +167,7 @@ lua_next
 
 lua_objlen
 
-lua_pcall: 49 63 F0 3C 01
+lua_pcall: 48 89 74 24 ? 57 48 83 EC 20 0F B6 41 ? 48 8B F9
 
 lua_pushboolean
 
@@ -191,7 +191,7 @@ lua_rawset
 
 lua_replace
 
-lua_resume: 76 ? 41 84 50
+lua_resume: 40 53 48 83 EC 20 0F B6 41 ? 48 8B D9 3C 01
 
 lua_setfield
 
@@ -219,7 +219,7 @@ SetFFlag
 
 TaskCancel
 
-TaskDefer: 4C 8B F0 80 B8
+TaskDefer: 48 89 5C 24 ? 48 89 74 24 ? 55 57 41 54 41 56 41 57 48 8D 6C 24 ? 48 81 EC 80 01 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 ? 48 8B F1
 
 TouchInterest
 
