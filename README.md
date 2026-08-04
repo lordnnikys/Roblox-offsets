@@ -33,9 +33,9 @@ coroutine.wrap
 
 coroutine.yield
 
-FireClient
+FireClient: 48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 4C 89 74 24 ? 55 48 8B EC 48 81 EC 80 00 00 00 4D 8B F1 49 8B D8 48 8B F2
 
-FireServer
+FireServer: 48 89 5C 24 ? 55 56 57 41 56 41 57 48 8D 6C 24 ? 48 81 EC 60 01 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 ? 4D 8B F8 48 8B FA
 
 GetCapabilities
 
@@ -45,7 +45,7 @@ GetLuaStateForInstance: 48 83 EC 38 8B 81 ? ? ? ? 90 83 F8 03 7D ? 48 81 C1 38 0
 
 Impersonator: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 60 ? ? ? 48 8B F1 ? ? ? 49 8B D9
 
-InvokeServer
+InvokeServer: 40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC E8 02 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 49 8B F9 4C 89 4C 24 ? 4D 8B E0 48 8B DA 48 89 54 24
 
 Lua_NewThread: 40 53 48 83 EC 20 48 8B 51 ? 48 8B D9 ? ? ? 48 39 42
 
@@ -157,7 +157,7 @@ lua_getfield
 
 lua_getmetatable
 
-lua_gettop: E8 ? ? ? ? 2B 43 ? 48 98
+lua_gettop: E8 ? ? ? ? 2B 43 ? 48 98 // might not be good
 
 lua_loadsafe
 
@@ -169,17 +169,17 @@ lua_objlen
 
 lua_pcall: 48 89 74 24 ? 57 48 83 EC 20 0F B6 41 ? 48 8B F9
 
-lua_pushboolean
+lua_pushboolean: 
 
 lua_pushcclosure
 
 lua_pushcfunction
 
-lua_pushinteger
+lua_pushinteger: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 41 8B F8 48 8B F2
 
-lua_pushnumber
+lua_pushnumber: 40 53 48 83 EC 30 80 3D ? ? ? ? ? 48 8B D9 0F 29 74 24 ? 0F 28 F1 74 ? 48 8B 51
 
-lua_pushstring
+lua_pushstring: 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B EA 48 8B F9 48 85 D2
 
 lua_pushvalue
 
@@ -209,7 +209,7 @@ lua_type
 
 NewInstance
 
-pushinstance
+pushinstance: 48 89 5C 24 ? 57 48 83 EC 20 48 8B FA 48 8B D9 E8 ? ? ? ? 48 8B CB 84 C0 74 ? 48 8B D7
 
 Require Bypass
 
