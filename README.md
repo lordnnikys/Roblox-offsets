@@ -1,6 +1,11 @@
 # Roblox-offsets
 This is guide on how to get multiple roblox offsets through ida
+
 Time spent: 12 hours
+
+986 lines
+
+35731 characters
 
 **SOME OFFSETS CAN BE PRESENT MULTIPLE TIMES, BECAUSE I'M INATTENTIVE AND I DONT KEEP TRACK OF WHAT I ALREADY DID!!!!**
 
