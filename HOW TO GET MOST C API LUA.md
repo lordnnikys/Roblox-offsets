@@ -2,6 +2,7 @@
 ```c
   sub_4B69E30(a1, a2: &off_603A3C8, a3: &off_6BBE0A0);
 ```
+```c
 double click off_6BBE0A0 you'll land here:
 .rdata:0000000006BBE0A0                                         ; "assert"
 .rdata:0000000006BBE0A8                 dq offset sub_4B7DF90
@@ -36,7 +37,8 @@ double click off_6BBE0A0 you'll land here:
 .rdata:0000000006BBE190                 dq offset aTonumber     ; "tonumber"
 .rdata:0000000006BBE198                 dq offset sub_4B7D910
 .rdata:0000000006BBE1A0                 dq offset aTostring     ; "tostring"
-
+```
+```c
    ## assert
 
    sub_4B7DF90:
@@ -212,7 +214,7 @@ double click off_6BBE0A0 you'll land here:
        sub_4B69480(a1, 1);             // check any
        sub_4B69F70(a1, 1, 0);          // <-- luaL_tolstring
        return 1;
-
+```
    ## Note: Two "push number" variants
 
    You'll see two functions pushing numbers throughout these decompilations:
