@@ -173,7 +173,7 @@ lua_pushboolean: 48 89 5C 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 8B FA 48 8B D9 74
 
 lua_pushcclosure
 
-lua_pushcfunction
+lua_pushcfunction: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 4C 8B 49 ? 41 8B F8
 
 lua_pushinteger: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 41 8B F8 48 8B F2
 
