@@ -176,3 +176,9 @@ NewInstance
 Impersonator
 
 GetCapabilities
+
+TouchInterest
+
+TaskCancel
+
+SetFFlag
