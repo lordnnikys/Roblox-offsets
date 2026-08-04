@@ -83,8 +83,6 @@ lua_gettop
 
 lua_settop
 
-luaL_errorL
-
 luaA_toobject
 
 lua_encodepointer
@@ -203,8 +201,16 @@ lua_pushvalue
 
 luaL_callmeta
 
-lua_pushcfunction
-
-lua_createtable
-
 luaL_tolstring
+
+lua_getfenv 
+
+lua_rawset
+
+lua_objlen
+
+lua_concat
+
+lua_equal
+
+lua_pushboolean
