@@ -218,3 +218,5 @@ lua_equal
 lua_pushboolean
 
 InvokeServer
+
+luah_new
