@@ -15,125 +15,71 @@ Time spent: 20 hours
 
 List of current offsets:
 
-Lua_NewThread
-
-Require Bypass
-
-Lua_SandBoxThread
-
-lua_createtable
-
-lua_setmetatable
-
-lua_pushstring (2 guides on it here)
-
-lua_pushvalue
-
-lua_settable
-
-lua_replace
-
-Lua_pseudoaddr
-
-LuaO_nilobject
-
-luaC_barrierf
-
-luaG_runerror
-
-lua_rawcheckstack
-
-luaD_throw
-
-luaG_addinfo
-
-luaL_argerrorL
-
-luaL_errorL
-
-GetLuaStateForInstance
-
 AttachRobloxExtraSpace
 
-lua_setfield
+coroutine.close
 
-pushinstance
+coroutine.create
 
-TaskDefer
+coroutine.isyieldable
+
+coroutine.resume
+
+coroutine.running
+
+coroutine.status
+
+coroutine.wrap
+
+coroutine.yield
+
+FireClient
+
+FireServer
+
+GetCapabilities
 
 GetIdentityStruct
 
-luaS_newlstr (2 guides in here)
+GetLuaStateForInstance
 
-luau_load
+Impersonator
 
-luaC_step (~4 guides on it here)
+InvokeServer
 
-lua_loadsafe
+Lua_NewThread
 
-luaD_rawrunprotected
+Lua_pseudoaddr
 
-luaM_free_
-
-luaC_barrierback
-
-lua_resume
-
-lua_pushnumber
-
-lua_pushinteger
-
-lua_gettop
-
-lua_settop
+Lua_SandBoxThread
 
 luaA_toobject
 
-lua_encodepointer
-
-luaL_tostring
-
-luaL_checklstring
-
-lua_gc
-
-lua_tonumber
-
-lua_getmetatable
-
-lua_type
-
-lua_setfield
-
-luaL_register
-
-lua_getfield
-
 luaB_assert
 
-luaB_error	
+luaB_error
 
-luaB_gcinfo	
+luaB_gcinfo
 
-luaB_getfenv	
+luaB_getfenv
 
-luaB_getmetatable	
+luaB_getmetatable
 
-luaB_next	
+luaB_newproxy
 
-luaB_newproxy	
+luaB_next
 
-luaB_print	
+luaB_print
 
-luaB_rawequal	
+luaB_rawequal
 
-luaB_rawget	
+luaB_rawget
 
-luaB_rawlen	
+luaB_rawlen
 
-luaB_rawset	
+luaB_rawset
 
-luaB_select	
+luaB_select
 
 luaB_setfenv
 
@@ -143,90 +89,136 @@ luaB_tonumber
 
 luaB_tostring
 
-lua_pcall
+luaC_barrierback
 
-coroutine.create
+luaC_barrierf
 
-coroutine.resume
+luaC_step
 
-coroutine.yield
+luaD_rawrunprotected
 
-coroutine.wrap
+luaD_throw
 
-coroutine.close
+luaG_addinfo
 
-coroutine.isyieldable
+luaG_runerror
 
-coroutine.running
+luaL_argerrorL
 
-coroutine.status
+luaL_callmeta
 
-lua_setfield (C API)
+luaL_checkinteger
 
-FireServer
+luaL_checklstring
 
-FireClient
+luaL_errorL
 
-lua_pushcclosure
+luaL_register
 
-lua_pushcfunction
+luaL_tolstring
 
-ScriptContextResume
+luaL_tostring
 
-NewInstance
+luaM_free_
 
-Impersonator
+LuaO_nilobject
 
-GetCapabilities
+luaS_newlstr
 
-TouchInterest
+luah_dummynode
 
-TaskCancel
-
-SetFFlag
-
-InvokeServer
+luah_new
 
 luau_execute
+
+luau_load
 
 luaopen_base
 
 lua_bit32
 
-lua_rawget
-
-lua_next
-
-lua_error
-
-lua_gcinfo
-
-lua_pushvalue
-
-luaL_callmeta
-
-luaL_tolstring
-
-lua_getfenv 
-
-lua_rawset
-
-lua_objlen
-
 lua_concat
+
+lua_createtable
+
+lua_encodepointer
 
 lua_equal
 
-lua_pushboolean
+lua_error
 
-InvokeServer
+lua_gc
 
-luah_new
+lua_gcinfo
 
-luah_dummynode
+lua_getfenv
 
-lua_tothread
+lua_getfield
+
+lua_getmetatable
+
+lua_gettop
+
+lua_loadsafe
 
 lua_newuserdata
 
-luaL_checkinteger
+lua_next
+
+lua_objlen
+
+lua_pcall
+
+lua_pushboolean
+
+lua_pushcclosure
+
+lua_pushcfunction
+
+lua_pushinteger
+
+lua_pushnumber
+
+lua_pushstring
+
+lua_pushvalue
+
+lua_rawcheckstack
+
+lua_rawget
+
+lua_rawset
+
+lua_replace
+
+lua_resume
+
+lua_setfield
+
+lua_setmetatable
+
+lua_settable
+
+lua_settop
+
+lua_tonumber
+
+lua_tothread
+
+lua_type
+
+NewInstance
+
+pushinstance
+
+Require Bypass
+
+ScriptContextResume
+
+SetFFlag
+
+TaskCancel
+
+TaskDefer
+
+TouchInterest
