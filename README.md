@@ -107,7 +107,7 @@ luaG_runerror: 48 8B C4 48 89 50 ? 4C 89 40 ? 4C 89 48 ? 53 48 81 EC 20 02 00 00
 
 luaL_argerrorL
 
-luaL_callmeta
+luaL_getmetafield
 
 luaL_checkinteger
 
