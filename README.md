@@ -236,3 +236,7 @@ lua_state encryption
 luaM_new
 
 luaM_realloc_
+
+lua_ref
+
+lua_unref
