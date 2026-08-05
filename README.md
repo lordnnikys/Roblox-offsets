@@ -254,3 +254,5 @@ raknetrecieve: 48 8D 05 ? ? ? ? 48 89 45 ? 48 8B 55 ? 48 81 EA 00 00 00 00 0F 10
 RakNetReliabilityLayerSend: 48 8D 1D ? ? ? ? 44 38 2D ? ? ? ? 74
 
 RaknetReportNetworkError: 48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC B0 05 00 00
+
+RaknetHandleConnectionState: 48 8D 05 ? ? ? ? 44 89 74 24 ? 48 89 44 24 ? 4C 8D 44 24
