@@ -1,6 +1,6 @@
 # GetCapabilities
 
-To get GetCapabilities we will use already known impersonator offset (sub_4C2CA90) decompile it:
+offset (sub_4C2CA90) decompile it:
 ```c
   *(_QWORD *)(a1 + 24) = *(_QWORD *)(a2 + 16);
   *(_QWORD *)(a1 + 32) = *(_QWORD *)(a2 + 40);
@@ -12,5 +12,5 @@ To get GetCapabilities we will use already known impersonator offset (sub_4C2CA9
   *((_QWORD *)&v17 + 1) = a4 & 0xFFFFFFFFFFFFFF00uLL | v9;
   v12 = *(_BYTE *)(a2 + 32);
 ```
-Well... Literally the only offset in sub_4C2CA90 you can't mess that up.
+Well.. Well.. Well.. Literally the only offset in sub_4C2CA90 you can mess that up.
 So the offset is 0x4C2D260
