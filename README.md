@@ -151,11 +151,9 @@ lua_equal
 
 lua_error: 
 
-lua_gc
+lua_gc: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC 40 48 8B 59
 
-lua_gcinfo
-
-lua_getfenv
+lua_getfenv: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA CC CC 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 80 3D ? ? ? ? ? 74 ? 48 8B 4B ? 48 8B 43 ? 48 83 C0 10 48 3B 41 ? 76 ? BA 01 00 00 00 48 8B CB E8 ? ? ? ? 85 C0 0F 84
 
 lua_getfield: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 ? ? ? 49 8B F0 48 63 FA
 
