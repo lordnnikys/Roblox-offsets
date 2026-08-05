@@ -19,7 +19,7 @@ Time spent: 20 hours
 
 List of current offsets:
 
-AttachRobloxExtraSpace
+AttachRobloxExtraSpace: 48 89 5C 24 ? 4C 89 4C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 4D 8B F9 4D 8B E8
 
 coroutine.close
 
@@ -53,11 +53,11 @@ InvokeServer: 40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 E
 
 Lua_NewThread: 40 53 48 83 EC 20 48 8B 51 ? 48 8B D9 ? ? ? 48 39 42
 
-Lua_pseudoaddr
+Lua_pseudoaddr: 41 B9 EE D8 FF FF // MIGHT BA BAD
 
 Lua_SandBoxThread: 40 53 48 83 EC 20 45 33 C0 33 D2 48 8B D9 E8 ? ? ? ? 45 33 C0
 
-luaA_toobject
+luaA_toobject: 48 83 EC 28 4C 8D 15 // MIGHT BE BAD
 
 luaB_assert
 
@@ -93,45 +93,45 @@ luaB_tonumber
 
 luaB_tostring
 
-luaC_barrierback
+luaC_barrierback: 4C 8B 49 ? ? ? ? 49 8B 41 ? ? ? ? 49 89 51
 
-luaC_barrierf
+luaC_barrierf: 48 8B 49 ? 0F B6 41 ? FE C8 3C 02 76 ? 0F B6 49
 
-luaC_step
+luaC_step: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 54 41 56 41 57 48 83 EC 30 48 8B 59 ? 0F B6 F2
 
-luaD_rawrunprotected
+luaD_rawrunprotected: 48 89 4C 24 ? 48 83 EC 38 48 8B C2
 
 luaD_throw: 48 83 EC 58 44 8B C2 // MIGHT BE BAD
 
-luaG_addinfo
+luaG_addinfo: 48 89 6C 24 ? 48 89 74 24 ? 57 48 81 EC 30 01 00 00 48 8B 71 ? 48 8B EA
 
 luaG_runerror: 48 8B C4 48 89 50 ? 4C 89 40 ? 4C 89 48 ? 53 48 81 EC 20 02 00 00
 
-luaL_argerrorL
+luaL_argerrorL: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 49 8B F8 8B F2
 
-luaL_getmetafield
+luaL_getmetafield: 48 89 5C 24 ? 57 48 83 EC 20 49 8B F8 48 8B D9 E8 ? ? ? ? 85 C0 74 ? 48 8B D7
 
 luaL_checkinteger
 
-luaL_checklstring
+luaL_checklstring: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 49 8B F9 49 8B D8 8B F2
 
-luaL_errorL
+luaL_errorL: 48 89 54 24 ? 4C 89 44 24 ? 4C 89 4C 24 ? 53 57 48 83 EC 28
 
-luaL_register
+luaL_register: 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC 30 45 33 F6 49 8B D8
 
-luaL_tolstring
+luaL_tolstring: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 81 EC E0 00 00 00 8D 82
 
-luaL_tostring
+luaL_tostring: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 81 EC E0 00 00 00 8D 82
 
-luaM_free_
+luaM_free_: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 48 8B 79 ? 49 8D 40
 
 LuaO_nilobject
 
-luaS_newlstr
+luaS_newlstr: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 55 41 56 41 57 48 83 EC 30 33 ED 4D 8B C8
 
 luah_dummynode
 
-luah_new
+luah_new: 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 83 EC 30 41 8B E8 48 63 F2
 
 luau_execute
 
@@ -141,7 +141,7 @@ luaopen_base: 48 89 5C 24 ? 57 48 83 EC 30 BA EE D8 FF FF
 
 lua_bit32
 
-lua_concat
+lua_concat: 48 89 5C 24 ? 57 48 83 EC 20 48 63 DA 48 8B F9 83 FB 02
 
 lua_createtable: 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 4C 8B 49 ? 41 8B F0
 
@@ -236,3 +236,5 @@ luaM_realloc_: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 
 lua_ref: 40 55 56 48 83 EC 28 80 3D // MIGHT BE WRONG
 
 lua_unref: 48 89 5C 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 8B FA 74
+
+print: 4C 8B DC 49 89 53 ? 4D 89 43 ? 4D 89 4B ? 53 48 81 EC 90 00 00 00
