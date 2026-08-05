@@ -9,9 +9,9 @@ Made with EVIL
 
 Time spent: 20 hours
 
-1280 lines
+1627 lines
 
-45611 characters
+59185 characters
 
 **SOME OFFSETS CAN BE PRESENT MULTIPLE TIMES, BECAUSE I'M INATTENTIVE AND I DONT KEEP TRACK OF WHAT I ALREADY DID!!!!**
 
