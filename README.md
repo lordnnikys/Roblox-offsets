@@ -256,3 +256,5 @@ RakNetReliabilityLayerSend: 48 8D 1D ? ? ? ? 44 38 2D ? ? ? ? 74
 RaknetReportNetworkError: 48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC B0 05 00 00
 
 RaknetHandleConnectionState: 48 8D 05 ? ? ? ? 44 89 74 24 ? 48 89 44 24 ? 4C 8D 44 24
+
+RaknetSend: 40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC C8 01 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 45 8B F9
