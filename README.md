@@ -159,17 +159,17 @@ lua_getfenv
 
 lua_getfield: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 ? ? ? 49 8B F0 48 63 FA
 
-lua_getmetatable
+lua_getmetatable: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA 74 ? 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 80 3D ? ? ? ? ? 74 ? 48 8B 4B ? 48 8B 43 ? 48 83 C0 10 48 3B 41 ? 76 ? BA 01 00 00 00 48 8B CB E8 ? ? ? ? 85 C0 0F 84
 
 lua_gettop: E8 ? ? ? ? 2B 43 ? 48 98 // might not be good
 
-lua_loadsafe
+lua_loadsafe: 48 89 54 24 ? 48 89 4C 24 ? 53 55 56 57 41 54 41 55 41 56 41 57 48 81 EC F8 04 00 00
 
 lua_newuserdata: 48 89 5C 24 ? 57 48 83 EC 20 4C 8B 41 ? 48 8B FA 48 8B D9 ? ? ? 49 39 40
 
 lua_next: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA 74 ? 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 85 FF 7E ? 48 8B 43 ? 48 8B CF 48 8B 53
 
-lua_objlen
+lua_objlen: 48 83 EC 28 85 D2 7E ? 4C 8B 41 ? 48 8D 05 ? ? ? ? 49 83 C0 F0 48 63 D2 48 C1 E2 04 4C 03 C2 4C 3B 41 ? 49 0F 42 C0 EB ? 81 FA F0 D8 FF FF 7E ? 48 63 C2 48 C1 E0 04 48 03 41 ? EB ? E8 ? ? ? ? 8B 50
 
 lua_pcall: 48 89 74 24 ? 57 48 83 EC 20 0F B6 41 ? 48 8B F9
 
