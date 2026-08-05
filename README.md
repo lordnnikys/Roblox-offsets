@@ -5,6 +5,8 @@ This is guide on how to get multiple roblox offsets through ida
 
 **SOME OFFSETS COULD BE INCORRECT. I'M ACTIVELY GOING TO RECHECK EVERY SINGLE GUIDE AND FIGURE OUT WHAT IS CORRECT AND WHAT IS WRONG. Sorry about that**
 
+**DM LORDNIKKY IF THERE ARE ANY ISSUES OR YOU WANT OFFSET ADDED**
+
 Made with EVIL
 
 Time spent: 20 hours
