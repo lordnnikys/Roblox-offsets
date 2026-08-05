@@ -163,7 +163,7 @@ lua_gettop: E8 ? ? ? ? 2B 43 ? 48 98 // might not be good
 
 lua_loadsafe
 
-lua_newuserdata
+lua_newuserdata: 48 89 5C 24 ? 57 48 83 EC 20 4C 8B 41 ? 48 8B FA 48 8B D9 ? ? ? 49 39 40
 
 lua_next: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA 74 ? 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 85 FF 7E ? 48 8B 43 ? 48 8B CF 48 8B 53
 
@@ -183,9 +183,9 @@ lua_pushnumber: 40 53 48 83 EC 30 80 3D ? ? ? ? ? 48 8B D9 0F 29 74 24 ? 0F 28 F
 
 lua_pushstring: 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B EA 48 8B F9 48 85 D2
 
-lua_pushvalue
+lua_pushvalue: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA CC CC 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 80 3D ? ? ? ? ? 74 ? 48 8B 4B ? 48 8B 43 ? 48 83 C0 10 48 3B 41 ? 76 ? BA 01 00 00 00 48 8B CB E8 ? ? ? ? 85 C0 74
 
-lua_rawcheckstack
+lua_rawcheckstack: 48 89 5C 24 ? 57 48 83 EC 20 48 8B D9 48 63 FA 48 8B 49 ? 8B C7
 
 lua_rawget: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA 74 ? 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 85 FF 7E ? 48 8B 43 ? 48 8B CF 48 8B 53
 
@@ -215,24 +215,24 @@ Require Bypass
 
 ScriptContextResume: 4C 8B DC 49 89 5B ? 49 89 73 ? 57 41 54 41 55 41 56 41 57 48 81 EC F0 00 00 00
 
-SetFFlag
+SetFFlag: 48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC D0 01 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 44 89 4C 24
 
-TaskCancel
+TaskCancel: 48 89 5C 24 ? 57 48 83 EC 20 BA 01 00 00 00 48 8B F9 E8 ? ? ? ? 48 8B D8
 
 TaskDefer: 48 89 5C 24 ? 48 89 74 24 ? 55 57 41 54 41 56 41 57 48 8D 6C 24 ? 48 81 EC 80 01 00 00 48 8B 05 ? ? ? ? 48 33 C4 48 89 45 ? 48 8B F1
 
-TouchInterest
+TouchInterest: 48 89 4C 24 ? 53 48 83 EC 20 48 8B D9 4C 8D 05 ? ? ? ? E8 ? ? ? ? 90 48 8D 05 ? ? ? ? ? ? ? E8 ? ? ? ? 48 89 43 ? E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 90 F0 FF 05
 
-luaF_newLclosure
+luaF_newLclosure: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 8B EA 49 8B F8
 
-luaF_newCclosure
+luaF_newCclosure: 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 63 F2 49 8B F8
 
 lua_state encryption
 
-luaM_new
+luaM_new: 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 57 48 83 EC 30 48 8B 79
 
-luaM_realloc_
+luaM_realloc_: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 30 48 8B 79 ? 48 8D 42
 
-lua_ref
+lua_ref: 40 55 56 48 83 EC 28 80 3D // MIGHT BE WRONG
 
-lua_unref
+lua_unref: 48 89 5C 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 8B FA 74
