@@ -250,3 +250,5 @@ lua_gettable: 48 89 5C 24 ? 57 48 83 EC 20 ? ? ? 48 8B D9 48 63 FA 74 ? 4C 8D 41
 luaV_gettable: 48 89 5C 24 ? 55 41 54 41 55 41 56 41 57 48 83 EC 40
 
 raknetrecieve: 48 8D 05 ? ? ? ? 48 89 45 ? 48 8B 55 ? 48 81 EA 00 00 00 00 0F 10 05 ? ? ? ? 0F 29 45 ? 46 8D 04 E5
+
+RakNetReliabilityLayerSend: 48 8D 1D ? ? ? ? 44 38 2D ? ? ? ? 74
