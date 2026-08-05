@@ -1,6 +1,6 @@
 # luaM_new
 
-To find luaM_new we'll use luaS_newlstr which is sub_4B9AB60 in my case:
+To find luaM_new we'll use luaS_newlstr which is sub_4B9AB60 in my case, first sub in code:
 ```c
   {
 LABEL_10:
