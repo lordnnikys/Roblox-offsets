@@ -238,3 +238,5 @@ lua_ref: 40 55 56 48 83 EC 28 80 3D // MIGHT BE WRONG
 lua_unref: 48 89 5C 24 ? 57 48 83 EC 20 80 3D ? ? ? ? ? 8B FA 74
 
 print: 4C 8B DC 49 89 53 ? 4D 89 43 ? 4D 89 4B ? 53 48 81 EC 90 00 00 00
+
+luaV_settable: 48 89 5C 24 ? 48 89 6C 24 ? 57 41 54 41 57 48 83 EC 40
