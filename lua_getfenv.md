@@ -28,4 +28,4 @@ __int64 __fastcall sub_4B7DBE0(_QWORD *a1)
 }
 ```
 
-So the offset is sub_4B621A0
+So the offset is 0x4B621A0
