@@ -199,7 +199,7 @@ lua_setfield: 48 89 5C 24 ? 57 48 83 EC 20 4D 8B D0 48 8B F9
 
 lua_setmetatable
 
-lua_settable
+lua_settable: 40 53 48 83 EC 20 48 8B D9 85 D2 7E ? 48 8B 41
 
 lua_settop: 48 89 5C 24 ? 57 48 83 EC 20 48 63 FA 48 8B D9 85 D2 0F 88
 
