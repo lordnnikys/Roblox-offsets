@@ -137,7 +137,7 @@ luau_execute
 
 luau_load: 48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 81 EC 80 00 00 00 49 8B E9 4D 8B F0
 
-luaopen_base
+luaopen_base: 48 89 5C 24 ? 57 48 83 EC 30 BA EE D8 FF FF
 
 lua_bit32
 
@@ -145,9 +145,9 @@ lua_concat
 
 lua_createtable: 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 4C 8B 49 ? 41 8B F0
 
-lua_encodepointer
+lua_encodepointer: 4C 8B 41 ? 48 8B C2 49 0F AF 80
 
-lua_equal
+lua_equal: 48 89 5C 24 ? 57 48 83 EC 20 49 63 D8 4C 8B D9 48 8D 3D ? ? ? ? 85 D2 CC
 
 lua_error: 
 
