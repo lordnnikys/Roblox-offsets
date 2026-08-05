@@ -3,6 +3,8 @@ This is guide on how to get multiple roblox offsets through ida
 
 **THIS IS FREE TO USE, IF YOU BUILD DUMPER WITH IT - OKAY, CREDIT ME IF YOU WANT, I DON'T EXPECT ANYTHING IN RETURN.**
 
+** SOME OFFSETS COULD BE INCORRECT. I'M ACTIVELY GOING TO RECHECK EVERY SINGLE GUIDE AND FIGURE OUT WHAT IS CORRECT AND WHAT IS WRONG. Sorry about that**
+
 Made with EVIL
 
 Time spent: 20 hours
@@ -201,11 +203,11 @@ lua_settable
 
 lua_settop: 48 89 5C 24 ? 57 48 83 EC 20 48 63 FA 48 8B D9 85 D2 0F 88
 
-lua_tonumber
+lua_tonumber: 48 83 EC 28 4D 8B D0 85 D2 7E ? 4C 8B 49 ? 48 8D 05 ? ? ? ? 49 83 C1 F0 48 63 D2 48 C1 E2 04 4C 03 CA 4C 3B 49 ? 49 0F 42 C1 EB ? 81 FA F0 D8 FF FF 7E ? 48 63 C2 48 C1 E0 04 48 03 41 ? EB ? E8 ? ? ? ? 83 78 ? ? 75
 
-lua_tothread
+lua_tothread: 48 83 EC 28 85 D2 7E ? 4C 8B 41 ? 48 8D 05 ? ? ? ? 49 83 C0 F0 48 63 D2 48 C1 E2 04 4C 03 C2 4C 3B 41 ? 49 0F 42 C0 EB ? 81 FA F0 D8 FF FF 7E ? 48 63 C2 48 C1 E0 04 48 03 41 ? EB ? E8 ? ? ? ? 83 78 ? ? 74 
 
-lua_type
+lua_type: 48 83 EC 28 85 D2 7E ? 48 8B 41 ? 48 83 C0 F0 48 63 D2 48 C1 E2 04 48 03 C2 48 3B 41 ? 73
 
 NewInstance
 
