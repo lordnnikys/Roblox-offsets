@@ -209,8 +209,6 @@ lua_tothread: 48 83 EC 28 85 D2 7E ? 4C 8B 41 ? 48 8D 05 ? ? ? ? 49 83 C0 F0 48 
 
 lua_type: 48 83 EC 28 85 D2 7E ? 48 8B 41 ? 48 83 C0 F0 48 63 D2 48 C1 E2 04 48 03 C2 48 3B 41 ? 73
 
-NewInstance
-
 pushinstance: 48 89 5C 24 ? 57 48 83 EC 20 48 8B FA 48 8B D9 E8 ? ? ? ? 48 8B CB 84 C0 74 ? 48 8B D7
 
 Require Bypass
