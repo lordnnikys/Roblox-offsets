@@ -252,3 +252,5 @@ luaV_gettable: 48 89 5C 24 ? 55 41 54 41 55 41 56 41 57 48 83 EC 40
 raknetrecieve: 48 8D 05 ? ? ? ? 48 89 45 ? 48 8B 55 ? 48 81 EA 00 00 00 00 0F 10 05 ? ? ? ? 0F 29 45 ? 46 8D 04 E5
 
 RakNetReliabilityLayerSend: 48 8D 1D ? ? ? ? 44 38 2D ? ? ? ? 74
+
+RaknetReportNetworkError: 48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC B0 05 00 00
