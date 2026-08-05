@@ -20,4 +20,4 @@ __int64 __fastcall sub_4B7DE80(__int64 a1)
   return 1;
 }
 ```
-So the offset is sub_4B61F60 . This is not luaB stuff
+So the offset is 0x4B61F60 . This is not luaB stuff
