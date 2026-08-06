@@ -1,6 +1,6 @@
 # print
 
-To dump print search for string "invalid password from %s", xref and decompile it:
+To dump print search for string "invalid password from %s" or "current identity is", xref and decompile it:
 ```c
     v14 = sub_A2D800(Dst: v62);
     if ( *(_QWORD *)(v14 + 24) >= 0x10u )
@@ -13,4 +13,3 @@ To dump print search for string "invalid password from %s", xref and decompile i
 ```
 
 So the offset is 0x4C27BF0
-(credits 1360939069663875132, not bitdancer)
