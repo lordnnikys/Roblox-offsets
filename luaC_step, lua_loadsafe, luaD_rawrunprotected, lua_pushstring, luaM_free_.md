@@ -1,4 +1,3 @@
-# luau_load
 # luaC_step
 # lua_loadsafe
 # luaD_rawrunprotected
@@ -12,10 +11,6 @@ To find it search string (shift f12) "not enough memory" and do **FOURTH** xref 
 .text:0000000004B6EADB                 lea     rax, aNotEnoughMemor ; "not enough memory"
 ```
 scroll up, until you see loc_RVA and some xref, press on that xref once and decompile:
-```c
-__int64 __fastcall sub_4B6EA30(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
-```
-its ~50 lines but all we need is just first line, and as we can see luau_load is 0x4B6EA30.
 
 To find luaC_step you need to just find this block:
 ```c
