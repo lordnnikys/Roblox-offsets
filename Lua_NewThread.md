@@ -1,7 +1,7 @@
 # Lua_NewThread
 
 ROBLOX INLINED THIS FUNCTION. STILL CAN BE REPLICATED
-```c
+```asm
   ; thread = luaM_new(L, 128, 0) via G->frealloc
    mov r8d, 0x80
    mov rcx, rsi           ; L
