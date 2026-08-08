@@ -1,12 +1,19 @@
 # luaL_checklstring
 
-luaL_checklstring can be found by searching string "collectgarbage must be called with 'count'" there is only 1 xref, go to it and decompile: 
+Checks that the argument at a given index is a string and returns it.
+
+Not a standalone function in this build. Reconstruct from two pieces:
+
 ```c
-  {
-    v3 = sub_4B69B10(a1, a2: 1, a3: (__int64)"collect", a4: nullptr); // <-- luaL_checklstring
-    v4 = 0;
-    while ( 1 )
-    {
+const char* luaL_checklstring(lua_State* L, int arg, size_t* len) {
+    TString* ts = luaA_toobject(L, arg);     // 0x937CC0
+    if (ts == NULL || ts->tt != 6)
+        luaL_typerrorL(L, arg, "string");    // 0x93B8C0
+    if (len) *len = ts->len;
+    return ts->data;
+}
 ```
 
-So the offset is 0x4B69B10
+Both functions are in your dump:  
+- `luaA_toobject`  = 0x937CC0 (guide: "invalid argument" string -> sub_93B8C0 -> find call)
+- `luaL_typerrorL` = 0x93B8C0 (guide: "invalid argument #%d" string -> first xref)
