@@ -1,47 +1,61 @@
 # Lua_pseudoaddr / LuaO_nilobject / luaC_barrierf
 
-Lua_pseudoaddr - used for converting a Lua stack index (like -1 or -10002) into a real memory address.
-LuaO_nilobject  - A global "nil" placeholder that is returned when a stack slot is empty.
-luaC_barrierf   - GC write barrier for functions.
+Lua_pseudoaddr - converts a Lua stack index (like -1 or -10002) into a real memory address.
+LuaO_nilobject  - global "nil" placeholder returned when a stack slot is empty.
+luaC_barrierf   - GC write barrier for functions. Marks objects so they don't get collected early.
 
-To dump all three you do same as Lua_SandBoxThread (`"__newindex"` string -> second xref -> sub_119E530) but decompile (f5) and find `sub_958BE0` which sets the metatable. Double click it and decompile:
+All three from one starting point.
 
-At the top of sub_958BE0 you'll see:
-```c
-    v4 = (int *)&unk_610B898;  // LuaO_nilobject
-```
+Binary search `5F 5F 69 6E 64 65 78 00` (`"__index"` in hex) - go to **second** xref (SandBoxThread). Decompile (f5).
 
-And nearby:
-```c
-    unk_610B760               // LuaH_dummynode
-```
-
-So **LuaO_nilobject** = offset `0x610B898`  
-So **LuaH_dummynode** = offset `0x610B760`
-
----
-
-For Lua_pseudoaddr, stay in sub_958BE0 and look for the function that handles index -10002 / -10001. Ctrl+F for `-10002`:
+Find the call that sets `__index` / `__newindex`:
 
 ```c
-    case -10002:
-      v8 = a1[14];
-      *(QWORD*)(v8 + 1200) = a1[1];
-      *(DWORD*)(v8 + 1212) = 7;
-    case -10001: ...
-    case -10000: ...
+  sub_XXXXXX(a1, a3, "__index", 8);    // <-- double click
 ```
 
-Double click the containing function which is `sub_937C00` — that is **Lua_pseudoaddr**.
+Decompile. Find the next function called near the end:
 
-Offset: **0x937C00**
-
----
-
-For luaC_barrierf, in sub_958BE0 or sub_94C250 (luaV_settable, called from same chain) decompilation, find the readonly check:
 ```c
-    if ( (*(_BYTE *)(*(_QWORD *)v4 + 4LL) != 0 )
-      sub_977130(a1);       // luaG_readonlyerror
+  sub_XXXXXX(a1, slot, &tvalue, top);  // <-- double click
 ```
-After the value is written, the GC barrier is called to mark the object gray.
-Double click it — that's luaC_barrierf.
+
+Decompile this final function. All three offsets are inside:
+
+```c
+__int64 __fastcall sub_XXXXXX(__int64 a1, ...)
+{
+  null_ptr = (type *)&unk_XXXXXXXX;    // <-- LuaO_nilobject
+
+  // ... table ops ...
+
+  if ( *(BYTE *)(*(QWORD *)table + 4) != 0 )
+    sub_XXXXXX(L);                      // luaG_readonlyerror
+
+  sub_XXXXXX(L, value);                // <-- double click = luaC_barrierf
+}
+```
+
+**LuaO_nilobject** - the `unk_` at top of function.  
+**luaC_barrierf** - the function called after readonly check, right after value write.  
+Double click it - inside it checks `G->gcstate` then marks the object.
+
+## Lua_pseudoaddr
+
+In the same decompilation, Ctrl+F for `-10002`:
+
+```c
+    case -10002:                       // LUA_REGISTRYINDEX
+    case -10001:                       // LUA_GLOBALSINDEX
+    case -10000:                       // LUA_ENVIRONINDEX
+    default:
+      // negative -> top-relative
+      // positive -> base-relative
+```
+
+Double click the function - **Lua_pseudoaddr**.
+
+This build:
+- Lua_pseudoaddr  = `0x937C00`
+- LuaO_nilobject  = `0x610B898`
+- luaC_barrierf   = `0x94C420`
