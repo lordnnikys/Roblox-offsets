@@ -1,22 +1,42 @@
 # lua_pushinteger
 
-Pushes an integer onto the Lua stack. Like lua_pushnumber but for whole numbers (tag 2 instead of tag 3).
+Pushes an integer onto the Lua stack. Tag 4 (LUA_TINTEGER in Roblox).
 
-lua_pushinteger can be found above lua_pushnumber, we will take "stack overflow" as an anchor, lets take offset we already know (4B63510), so, lua_pushinteger will be located on 4th "stack overflow"
+Find lua_pushnumber first (`"__index"` bytes -> SandBoxThread -> sub_119DE10 -> sub_938E80). lua_pushinteger is the next function right below it at `0x938EF0`:
 
 ```c
-.text:0000000004B63357 loc_4B63357:                            ; CODE XREF: sub_4B632F0+3F↑j
-.text:0000000004B63357                 lea     rdx, aStackOverflow ; "stack overflow"
-.text:0000000004B6335E                 mov     rcx, rbx
-.text:0000000004B63361                 call    sub_4B99F50
-.text:0000000004B63366                 mov     rcx, rbx
-.text:0000000004B63369                 call    sub_4B61F50
-.text:0000000004B63369 sub_4B632F0     endp // <-- lua_pushinteger
+__int64 __fastcall sub_938EF0(__int64 a1, __int64 a2)
+{
+  if (stack_full) { GC_step(); stack_overflow_error(); }
+  *(QWORD*)L->top = a2;              // store integer
+  *(DWORD*)(L->top + 12) = 4;        // tag = LUA_TINTEGER
+  L->top += 16;
+}
 ```
 
-so the offset is sub_4B632F0 or 0x4B632F0
+Copy sub_938EF0 and jump to it, and scroll bit up (well actually down, binary goes bottom to up so scrolling down in binary means looking up, KEEP IN MIND!!!)
+```asm
+.text:0000000000938E80 arg_0           = qword ptr  8
+.text:0000000000938E80
+.text:0000000000938E80                 mov     [rsp+arg_0], rbx // <-- you're somewhere here
+```
 
-use example:
+Scroll down until you see big SUBROUTINE text with ==:
+```asm
+.text:0000000000938EF0 ; =============== S U B R O U T I N E =======================================
+.text:0000000000938EF0
+.text:0000000000938EF0
+.text:0000000000938EF0 ; __int64 __fastcall sub_938EF0(__int64, __int64)
+.text:0000000000938EF0 sub_938EF0      proc near               ; CODE XREF: sub_223CA40+378↓p
+.text:0000000000938EF0                                         ; sub_223CA40+3A7↓p ...
+.text:0000000000938EF0
+.text:0000000000938EF0 arg_0           = qword ptr  8
+.text:0000000000938EF0
+.text:0000000000938EF0                 mov     [rsp+arg_0], rbx
+```
+
+Offset: **0x938EF0**
+
 ```c++
-((void(*)(lua_State*, long long))REBASE(0x4B632F0))(L, 42);
+((void(*)(lua_State*, long long))REBASE(0x938EF0))(L, 42);
 ```
