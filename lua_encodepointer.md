@@ -1,11 +1,24 @@
 # lua_encodepointer
 
-lua_pushstring can be found by searching string `"'__tostring' must return a string"`, there is only 1 xref, go to it and decompile: 
+Encodes/encrypts a pointer field for storage. Used by all Luau structs to obfuscate internal pointers.
+
+Not a standalone function in this build - the encoding is inlined as VMValue operations:
+
 ```c
-        v13 = sub_4B65290(a1, a2);
-        v14 = sub_4B61E40((__int64)a1, a2: v13); // <-- lua_encodepointer
-        v15 = (int *)sub_4B618C0(a1, a2);
-        if ( v15 != nullptr )
+// SET operations (encode for storage):
+// VMValue1: data = value + (data + offset)        // ADD  - ADD32_MEM encode
+// VMValue2: data = (data + offset) - value         // SUB  - SUB32_MEM encode
+// VMValue3: data = value ^ (data + offset)         // XOR  - XOR32_MEM encode
+
+// GET operations (decode for use):
+// VMValue1: (data + offset) = data - value
+// VMValue2: (data + offset) = data + value
+// VMValue3: (data + offset) = data ^ value
 ```
 
-So the offset is 0x4B61E40
+Examples from the bytecode loader (sub_97C200):
+- Proto->bytecode: XOR encoded (VMValue3)
+- TString->hash: SUB encoded (VMValue2)
+- Closure->upvals: ADD encoded (VMValue1)
+
+The key is the field address itself (pointer + offset), making each encoding field-unique without a stored key.
