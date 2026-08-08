@@ -2,34 +2,36 @@
 
 Used for disabling roblox's security against require() calls.
 
-To dump require bypass you find string (shift f12 in ida, "s" in ghidra) "Cannot require a non" go to **second** xref and decompile it (f5), after which you will be put here:
+To dump require bypass you find string (shift f12 in ida, "s" in ghidra) "Cannot require a non-RobloxScript" go to **second** xref and decompile it (f5), after which you will be in my case `sub_2334770` where you will see error messages for require security. You will find:
 
 ```c
- if ( (unsigned __int8)sub_1D55ED0(a1: v16) == 0 )
-  {
-    sub_1D66AC0(a1: v92, a2: a1);
-    if ( (unsigned __int8)sub_4C2D610(a1: v92, a2: 8) != 0 && (unsigned __int8)sub_1DEA640(a1: v70) == 0 )
-      sub_5154200(a1: "Cannot require a non-RobloxScript module from a RobloxScript");
-    if ( (unsigned __int8)sub_4C2D610(a1: v92, a2: 8) == 0 && (unsigned __int8)sub_1DEA640(a1: v70) != 0 )
-      sub_5154200(a1: "Cannot require a RobloxScript module from a non RobloxScript context");
-  }
+        if ( *(_BYTE *)(v29 + 2112) == 0 ) // <-- require bypass
+        {
+          v30 = *(_QWORD *)(a1 + 32);
+          v156 = *(_OWORD *)(v30 + 48);
+          v157 = *(_QWORD *)(v30 + 64);
+          if ( (sub_8EB520(a1: &v156) & 8) != 0 )
+          {
+            if ( (*(_BYTE *)(v132 + 360) & 1) == 0 )
+            {
+              __eh34_enter_wind_state(1, 8);
+              sub_2C9D040(a1: "Cannot require a non-RobloxScript module from a RobloxScript"); // <-- you'll be put here
 ```
-Double click **sub_1D55ED0** (or whatever value will be here on your Roblox version) and you will be put here:
 
+The byte at offset +2112 (+0x840) from `v29` controls whether the require security check fires. When this byte is `0`, the check runs. When it's `1`, it **skips** all the security logic below it.
+
+`v29` is resolved through:
+```
+v29 = *(*(*(ScriptContext + 0x20) + 0x18) + 0x10)
+```
+
+Offset can be both 0x840 and 0x9D0
+
+Which works out to: the byte at **ScriptContext + 0x9D0** controls require bypass.
+
+Offset: **0x9D0**
+
+Usage:
 ```c
-__int64 __fastcall sub_1D55ED0(__int64 a1)
-{
-  if ( *(int *)(a1 + 4792) >= 3 )
-    sub_513AB80(a1: 0, a2: "Invalid Facet Access");
-  return sub_1DABCC0(a1: a1 + 2048);
-}
+*(unsigned char*)(scriptContext + 0x9D0) = 1; // 1 = disable require checks
 ```
-There you double click **sub_1DABCC0** (or once again whatever value will be here) and there will be:
-```c
-  return *(unsigned __int8 *)(a1 + 464);
-```
-All left to do is 2048+464 in hex, which will be 9d0
-
-So the offset is 0x9d0
-
-Offset example of use: ```*(unsigned char*)(scriptcontext + 0x9D0) = 1 <-- 1 - disable;```
