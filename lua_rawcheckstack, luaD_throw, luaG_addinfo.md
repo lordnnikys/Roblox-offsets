@@ -4,9 +4,7 @@ lua_rawcheckstack - makes sure the Lua stack has space for new values before pus
 luaD_throw        - performs the actual stack unwinding when a Lua error is thrown.
 luaG_addinfo      - adds source file name and line number to error messages.
 
-All three are inside `sub_978940` (luaG_runerrorL).
-
-Jump to `0x978940` and decompile (f5):
+All three are inside luaG_runerrorL. Decompile `sub_978940` (from luaG_runerrorL guide):
 
 ```c
 void __noreturn sub_978940(__int64 a1, char *a2, ...)
