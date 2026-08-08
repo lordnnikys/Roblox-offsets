@@ -1,36 +1,40 @@
 # Lua_NewThread
 
-ROBLOX INLINED THIS FUNCTION. STILL CAN BE REPLICATED
+Used for creating new coroutine (thread) from existing state. Required for sandboxed execution for user scripts.
+
+**In this build lua_newthread has been inlined into ScriptContext. There is no standalone function.**
+
+To find it you find string (shift f12) "Script Start" go to first xref, that is sub_2345A40 (ScriptContext). Decompile it (f5), then scroll to the thread creation or Ctrl+F in disassembly for "80h" and find:
+
 ```asm
-  ; thread = luaM_new(L, 128, 0) via G->frealloc
-   mov r8d, 0x80
-   mov rcx, rsi           ; L
-   call [G->frealloc]     ; rax = new lua_State*
-   mov rbx, rax
-
-   ; GC header
-   mov cl, [G + 0x10]     ; G->currentwhite
-   and cl, 3
-   mov [rbx+1], cl         ; marked
-   mov byte [rbx], 0x0A   ; tt = LUA_TTHREAD (at offset 0 now!)
-   mov al, [rsi+6]         ; L->memcat
-   mov [rbx+2], al         ; memcat
-
-   ; State setup
-   mov rax, [rsi+0x70]     ; G
-   mov [rbx+0x70], rax     ; thread->global = G
-   mov [rbx+0x50], r14     ; base_ci = NULL
-   lea r12, [rbx+0x40]
-   mov [r12], r12d         ; base_ci = thread+0x40
-   mov [rbx+8], r14        ; stack = NULL
-   mov [rbx+0x28], r14     ; openupval = NULL
-   mov [rbx+0x44], r14d    ; nCcalls = 0
-   mov [rbx+0x30], r14     ; top = NULL
-   mov [rbx+3], 0          ; status = 0
-   mov [rbx+0x58], r14     ; errorJmp = NULL
-   mov [rbx+0x18], r14     ; gt = NULL
-   mov [rbx+0x78], r14     ; cb = NULL
-   mov [rbx+0x20], r14     ; registry = NULL
-   mov [rbx+6], al         ; memcat again
-   ; ...then allocates stack (0x180 bytes) and callinfo (0x2D0 bytes)
+.text:0000000002345F99                 mov     r8d, 80h
+.text:0000000002345F9F                 mov     rcx, rsi
+.text:0000000002345FA2                 call    cs:__guard_dispatch_icall_fptr
+.text:0000000002345FA8                 mov     rax, [rsi+70h]
+.text:0000000002345FAC                 movzx   ecx, byte ptr [rax+10h]
+.text:0000000002345FB0                 and     cl, 3
+.text:0000000002345FB3                 mov     [rbx+1], cl
+.text:0000000002345FB6                 mov     byte ptr [rbx], 0Ah
 ```
+
+At 0x2345F99 it allocates 128 bytes for the lua_State through robux's allocator.
+At 0x2345FB6 it sets the thread tag (0xA) at **offset 0** — this was at offset +1 in the old build.
+
+This code allocates a new lua_State and initializes all its fields inline:
+
+```c
+// allocation: 128 bytes via G->frealloc
+// GC header:    tag 0xA at offset 0, marked bits at offset +1
+// State:        global_State copied from parent, base_ci set
+// All fields:   stack=NULL, top=NULL, status=0, nCcalls=0, etc
+// Stack:        0x180 bytes allocated
+// CallInfo:     0x2D0 bytes allocated
+```
+
+Since there's no standalone function you can call, you need to either:
+1. Replicate the 20-line block from ScriptContext as shellcode
+2. Or manually call luaM_new(128), set tag to 0xA, copy G pointer, and push onto the parent stack
+
+Offset: **NOT A SINGLE FUNCTION** — inlined at `0x2345F99` inside `sub_2345A40`
+
+Key change from old build: GC tag at offset **0**, not +1.
