@@ -1,14 +1,20 @@
 # luau_load
 
-Search for "bytecode corrupted", go to its xref and just copy sub_97C200 well in my case it is:
+luau_load - loads Lua bytecode into a Lua state. Also called LuaVM_Load by Roblox.
+
+Search string (shift f12) `"bytecode type version mismatch"` go to xref, that is `sub_97C200` (bytecode reader):
+
 ```c
-.rdata:0000000006B60030 aSBytecodeCorru db '%s: bytecode corrupted',0
-.rdata:0000000006B60030                                         ; DATA XREF: sub_97C200+233↑o
+.rdata:0000000006B60088 aSBytecodeTypeV db '%s: bytecode type version mismatch (expected [%d..%d], got %d)',0
+.rdata:0000000006B60088                                         ; DATA XREF: sub_97C200+1B0↑o
 ```
 
-Jump to sub_97C200 and press ctrl x, second, 3rd, 4th 5th xrefs are the luau_load, which in my case is:
+Press X on `sub_97C200`, second xref is luau_load:
+
 ```c
 Down    o    sub_227CC60+19E    lea     rdx, sub_97C200
 ```
 
-So the offset is 0x227CC60
+Double click `sub_227CC60` - luau_load.
+
+Offset: **0x227CC60**
