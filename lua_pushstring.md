@@ -1,23 +1,19 @@
 # lua_pushstring
 
-lua_pushstring can be found by searching string `"'__tostring' must return a string"`, there is only 1 xref, go to it and decompile: 
+Pushes a C string onto the Lua stack as an interned TString.
+
+Not a standalone function in this build - the TString creation logic is inlined into lua_getfield (0x93E0C0). Use the formula:
 
 ```c
-    goto LABEL_6;
-  sub_4B63510(a1, a2: "__tostring"); // <-- lua_pushstring
-  sub_4B63A40(a1, a2: 4294967294LL);
+void lua_pushstring(lua_State* L, const char* s) {
+    size_t len = strlen(s);
+    TString* ts = luaS_newlstr(L, s, len);
+    *(QWORD*)L->top = ts;
+    *(DWORD*)(L->top + 12) = 6;    // tag = LUA_TSTRING
+    L->top += 16;
+}
 ```
 
-OR
-```c
-          v9 = dword_5E47990;
-        sub_4B63510(a1, a2: v9); // <-- lua_pushstring
-        break;
-```
+TString is created by computing a 32-bit hash of the string, looking it up in G->stringtable, and allocating a new GC object (tag at offset 0 is 6) if not found.
 
-So the offset is 0x4B63510
-
-Example of use:
-```c++
-((void(*)(lua_State*, const char*))REBASE(0x4B63510))(L, "Hello, World!");
-```
+Alternatively, find it through the `"__index"` chain to lua_getfield (0x93E0C0) and extract the inline TString creation block.
