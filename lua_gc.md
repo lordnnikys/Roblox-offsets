@@ -1,9 +1,23 @@
 # lua_gc
-lua_gc can be found by searching string "collectgarbage must be called with 'count'" there is only 1 xref, go to it and decompile: 
-```c
-  v9 = sub_4B61F60(a1, a2: 3, a3: 0); // <-- lua_gc
-  sub_4B63490(a1, a2: (double)v9);
-  return 1;
-```
 
-So the offset is 0x4B61F60
+Controls the garbage collector. Takes (L, int what, int data).
+
+Not a single standalone function in this build. The GC is split across:
+
+- `luaC_step`   = 0x94BEC0 — runs one GC step (what=LUA_GCSTEP)
+- `sub_94C250`  = 0x94C250 — runs full GC cycle (what=LUA_GCCOLLECT)
+- `sub_94C4A0`  = 0x94C4A0 — GC throughput calculation (what=LUA_GCCOUNT)
+
+Use the formula:
+```c
+int lua_gc(lua_State* L, int what, int data) {
+    switch (what) {
+        case LUA_GCSTOP:     G->gcstate = 0; return 0;
+        case LUA_GCRESTART:  G->gcstate = 1; return 0;
+        case LUA_GCCOLLECT:  sub_94C250(L, data, 0); return 0;
+        case LUA_GCCOUNT:    return G->totalbytes >> 10;
+        case LUA_GCSTEP:     sub_94BEC0(L, data); return 0;
+        default: return 0;
+    }
+}
+```
