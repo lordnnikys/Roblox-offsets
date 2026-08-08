@@ -1,13 +1,18 @@
 # lua_settop
 
-lua_settop can be found by searching string `"'__tostring' must return a string"`, there is only 1 xref, go to it and decompile: 
+Sets the Lua stack top to a specific index. Grows or shrinks the stack as needed.
+
+Not a standalone function in this build - inlined into callers. Use the formula:
 
 ```c
-  if ( (unsigned int)sub_4B65630(a1, a2: 0xFFFFFFFFLL) == 0 )
-  {
-    sub_4B64BC0(a1, a2: -3); // <-- lua_settop
-LABEL_6:
-    switch ( (unsigned int)sub_4B65630(a1, a2) )
-    {
+void lua_settop(lua_State* L, int idx) {
+    L->top = L->base + 16 * idx;
+    // if idx > current top, fill gaps with nils (tag 0)
+    // if idx < current top, just move top pointer
+}
 ```
-So the offset is 0x4B64BC0
+
+L->top  at offset 0x48
+L->base at offset 0x60
+
+Index -1 = top-relative pop, index -10002 = registry, etc.
