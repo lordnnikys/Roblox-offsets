@@ -1,19 +1,20 @@
-# luaL_tolstring 
+# luaL_tolstring
 
+Converts any Lua value at a given index to its string representation. Used by print() internally.
 
-This will be dumped with the help of luaB offsets we found (search string "_VERSION" go to the only xref and decompile code:
-There you will see this line (3rd line in the table)
-  sub_4B69E30(a1, a2: &off_603A3C8, a3: &off_6BBE0A0);)
+Search string (shift f12) `"print"` go to xref. In the data table, the **next qword** after the "print" string pointer is luaB_print:
 
-So. to get luaL_tolstring  locate:
 ```c
-.rdata:0000000006BBE110                 dq offset aPrint        ; "print"
-.rdata:0000000006BBE118                 dq offset sub_4B7D830
+.rdata:0x61F5AC0  dq 0x6B72534    ; "print" string pointer
+.rdata:0x61F5AC8  dq 0x4151D20    ; luaB_print
 ```
-Double click the sub_RVA and decompile:
+
+Decompile luaB_print (0x4151D20):
+
 ```c
-    {
-      v4 = sub_4B69F70(a1, a2: v2, a3: &v10); // <-- luaL_tolstring 
-      if ( v2 > 1 )
-      {
+  v4 = (const void *)sub_943ED0(a1, v1, &ElementCount);  // <-- luaL_tolstring
 ```
+
+Double click `sub_943ED0` - luaL_tolstring.
+
+Offset: **0x943ED0**
